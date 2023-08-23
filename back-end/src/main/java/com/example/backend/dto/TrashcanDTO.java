@@ -1,15 +1,13 @@
 package com.example.backend.dto;
 
 import com.example.backend.entity.TrashcanEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class TrashcanDTO {
 
     private Long TrashcanId;

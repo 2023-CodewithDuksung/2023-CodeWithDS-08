@@ -2,17 +2,16 @@ import React from "react"
 
 const navStyle = {
     display: "flex",
+    flexDirection: 'column',
     justifyContent: "center",
-    alignItems: "center",
-    height: "9rem",
-    backgroundColor: "#95BFA0",
+    alignItems: "flex-end", 
+    marginTop: 'auto',
 }
 
 const ulStyle = {
     display: "flex",
     justifyContent: "space-around",
-    alignItems: "", // 하단 정렬 적용 예정
-    width: "50%",
+    alignItems: "flex-end", 
     margin: 0,
     padding: 0,
 }
@@ -23,7 +22,7 @@ const liStyle = { // hover 속성 적용 예정
     paddingBottom: "0.25rem",
     listStyle: "none",
     color: "#ffffff",
-    fontSize: "1.25rem",
+    fontSize: "1rem",
     cursor: "pointer",
 }
 
@@ -51,19 +50,13 @@ const NavBar = (props) => {
                 >
                 LIFE
                 </li>
-                {children}
-                <li
-                style={liStyle}
-                onClick={() => setPageState("SEARCH")}
-                >
-                SEARCH
-                </li>
                 <li
                 style={liStyle}
                 onClick={() => setPageState("SIGNUP")}
                 >
                 SIGN UP
                 </li>
+                {children}
             </ul>
         </nav>
     )

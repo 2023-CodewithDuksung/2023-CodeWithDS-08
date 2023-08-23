@@ -1,11 +1,11 @@
 import './App.css';
-import Button from './components/atoms/Button';
+import Logo from './components/molecules/Logo';
+import NavBar from './components/organisms/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world!</h1>
-      <Button>test</Button>
+      <NavBar><Logo>GREENDUKLIFE</Logo></NavBar>
     </div>
   );
 }

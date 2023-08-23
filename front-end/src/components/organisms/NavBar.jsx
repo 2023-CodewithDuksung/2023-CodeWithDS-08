@@ -11,13 +11,13 @@ const navStyle = {
 const ulStyle = {
     display: "flex",
     justifyContent: "space-around",
-    alignItems: "center",
+    alignItems: "", // 하단 정렬 적용 예정
     width: "50%",
     margin: 0,
     padding: 0,
 }
 
-const liStyle = { // 추후에 hover 속성 적용 예정
+const liStyle = { // hover 속성 적용 예정
     display: "inline",
     margin: "0 1.5rem",
     paddingBottom: "0.25rem",

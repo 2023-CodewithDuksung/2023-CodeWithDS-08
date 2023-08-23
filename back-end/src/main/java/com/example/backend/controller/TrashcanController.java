@@ -41,6 +41,13 @@ public class TrashcanController {
     }
 
     // 3차 조회 (상세 페이지, id기준)
+    @GetMapping("/trashcanId")
+    public List<TrashcanEntity> clickId(@RequestParam("trashcanId") Long keyword){
+        System.out.println("keyword2 : " + keyword);    //
+        List<TrashcanEntity> idEntityList = trashcanService.clickId(keyword);
+        System.out.println("controlloer2 : " + idEntityList);    //
+        return idEntityList;
+    }
 
 
     // post (데이터 등록)

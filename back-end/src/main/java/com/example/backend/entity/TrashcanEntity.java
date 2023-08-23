@@ -14,7 +14,7 @@ public class TrashcanEntity {
 
     @Id
     @GeneratedValue
-    private Long TrashcanId;    // Q : 직접 키 생성 못함. 지금 자동 생성 중
+    private Long trashcanId;    // Q : 직접 키 생성 못함. 지금 자동 생성 중
 
     private String building;
 
@@ -36,7 +36,7 @@ public class TrashcanEntity {
     private String image;
 
     public Long getTrashcanId() {
-        return TrashcanId;
+        return trashcanId;
     }
 
 }

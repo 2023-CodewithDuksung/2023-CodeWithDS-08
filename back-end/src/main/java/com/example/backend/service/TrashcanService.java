@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,9 +34,16 @@ public class TrashcanService {
         return floors;
     }
 
+    @Transactional
+    public List<TrashcanEntity> clickId(Long keyword) {
+        List<TrashcanEntity> Id = trashcanRepository.findAllByTrashcanId(keyword);
+        return Id;
+    }
+
+
     private TrashcanDTO convertEntityToDto(TrashcanEntity b){
         TrashcanDTO build = TrashcanDTO.builder()
-                .TrashcanId(b.getTrashcanId())
+                .trashcanId(b.getTrashcanId())
                 .building(b.getBuilding())
                 .floor(b.getFloor())
                 .count(b.getCount())

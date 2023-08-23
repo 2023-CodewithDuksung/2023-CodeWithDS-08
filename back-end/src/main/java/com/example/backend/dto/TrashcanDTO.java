@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 public class TrashcanDTO {
 
-    private Long TrashcanId;
+    private Long trashcanId;
     private String building;
 
     private Integer floor;
@@ -21,14 +21,9 @@ public class TrashcanDTO {
     private String type;
     private String image;
 
-
-    /*public TrashcanEntity toEntity() {
-        return new TrashcanEntity(TrashcanId, building, floor, count, icon, location , type);
-    }*/
-
     public TrashcanEntity toEntity() {
         TrashcanEntity build = TrashcanEntity.builder()
-                .TrashcanId(TrashcanId)
+                .trashcanId(trashcanId)
                 .building(building)
                 .floor(floor)
                 .count(count)

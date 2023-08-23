@@ -25,9 +25,23 @@ public class UserService {
 
         Optional<UserEntity> findUser = userRepository.findByUserId(user.getUserId());
         if(findUser.isPresent()){
-            return "회원가입 실패";
+            return "중복 ID가 존재합니다.";
         }
         return userRepository.save(user).getUserId();
+    }
+
+    public String login(UserDTO userDTO) {
+
+        Optional<UserEntity> findUser = userRepository.findByUserId(userDTO.getUserId());
+
+        if(!findUser.isPresent()){
+            return "ID가 존재하지 않습니다.";
+        }
+        else if (!findUser.get().getPassword().equals(userDTO.getPassword())){
+            return "비밀번호가 일치하지 않습니다.";
+        }
+
+        return findUser.get().getUserId();
     }
 
 }

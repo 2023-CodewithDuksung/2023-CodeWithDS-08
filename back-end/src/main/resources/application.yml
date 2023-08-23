@@ -12,3 +12,12 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     generate-ddl: true
     show-sql: true
+#multipart 설정
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+app:
+  firebase-configuration-file: ./serviceAccountKey.json
+  firebase-bucket: hackathon-8da33.appspot.com

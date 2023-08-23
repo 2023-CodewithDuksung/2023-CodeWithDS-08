@@ -24,6 +24,13 @@ public class UserController {
         return userId;
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody UserDTO userDTO){
+        String userId = userService.login(userDTO);
+
+        return userId;
+    }
+
 
 
 }

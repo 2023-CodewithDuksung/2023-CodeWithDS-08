@@ -1,17 +1,17 @@
 import React from "react"
 
-const h1Style = (color, fontSize) => ({
+const h1Style = (padding, color, fontSize) => ({
     margin: 0,
-    padding: "0 1rem",
-    width: "fit-content",
+    padding: padding,
+    width: "fit-contents",
     color: color,
     fontSize: fontSize,
-    textAlign: "center",
+    whiteSpace: "pre-line"
 })
 
 const H1 = (props) => {
-    const { children, color, fontSize } = props
-    return <h1 style={h1Style(color, fontSize)}>{children}</h1>
+    const { children, padding, color, fontSize } = props
+    return <h1 style={h1Style(padding, color, fontSize)}>{children}</h1>
 }
 
 export default H1

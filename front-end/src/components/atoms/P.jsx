@@ -1,15 +1,17 @@
 import React from "react"
 
-const textStyle = (fontSize) => ({
+const textStyle = (margin, padding, fontSize, color) => ({
+    margin: margin,
+    padding: padding,
+    width: "fit-contents",
     fontSize: fontSize,
-    marginTop: "0.5rem",
-    padding: "0.5rem",
-    color: "#000000"
+    color: color,
+    whiteSpace: "pre-line"
 })
 
 const P = (props) => {
-    const { children, fontSize } = props
-    return <p style={textStyle(fontSize)}>{children}</p>
+    const { children, margin, padding, fontSize, color } = props
+    return <p style={textStyle(margin, padding, fontSize, color)}>{children}</p>
 }
 
 export default P

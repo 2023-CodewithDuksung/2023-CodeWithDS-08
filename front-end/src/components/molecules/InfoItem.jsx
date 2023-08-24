@@ -2,16 +2,20 @@ import React from "react"
 import H1 from "../atoms/H1"
 import P from "../atoms/P"
 
-const infoItemStyle = {
-    margin: "0 48px 1rem",
+const infoItemStyle = (flexDirection) => ({
+    display: "flex",
+    flexDirection: flexDirection,
+    // margin: "0 48px 1rem",
     textAlign: "left"
-}
+})
 
-const InfoItem = ({ name, explanation }) => {
+const InfoItem = (props) => {
+    const { flexDirection, h1Size, pSize, name, margin, padding, color, explanation } = props
+
     return (
-        <div style={infoItemStyle}>
-            <H1>{name}</H1>
-            <P fontSize="1rem">{explanation}</P>
+        <div style={infoItemStyle(flexDirection)}>
+            <H1 fontSize={h1Size} margin={margin} padding={padding} color={color}>{name}</H1>
+            <P fontSize={pSize} margin={margin} padding={padding} color={color}>{explanation}</P>
         </div>
     )
 }

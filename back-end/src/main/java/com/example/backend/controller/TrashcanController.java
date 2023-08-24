@@ -33,11 +33,12 @@ public class TrashcanController {
         return buildingDtoList;
     }
 
-    // 2차 조회(상세페이지) : floor기준
-    @GetMapping("/floor")
-    public List<TrashcanEntity> clickFloor(@RequestParam("floor") Integer keyword){
-        List<TrashcanEntity> floorEntityList = trashcanService.clickFloor(keyword);
-        return floorEntityList;
+    // 2차 조회(상세페이지) : building, floor기준
+    @GetMapping("/openPage")
+    public List<TrashcanEntity> openPage(@RequestParam("building") String building, @RequestParam("floor") Integer floor){
+        List<TrashcanEntity> pageEntityList = trashcanService.getPage(building, floor);
+        System.out.println("count = " + pageEntityList);
+        return pageEntityList;
     }
 
     // 3차 조회 : id기준 - 필요없음.
@@ -59,7 +60,6 @@ public class TrashcanController {
     @GetMapping("/count")
     public Long clickId(@RequestParam("building") String building, @RequestParam("floor") Integer floor){
         Long count = trashcanService.getCount(building, floor);
-        System.out.println("count = " + count);    //
         return count;
     }
 

@@ -24,9 +24,6 @@ public class RecycleEntity {
     @Column(nullable = false, length=150)
     private String type;
 
-    @Column(nullable = false, length=100)
-    private String location;
-
     @Column(columnDefinition="TEXT")
     private String method;
 
@@ -38,4 +35,10 @@ public class RecycleEntity {
 
     @Column(nullable = false)
     private Integer view;
+
+    @Column(nullable = false)
+    private Boolean school;
+
+    @Column(nullable = false)
+    private Boolean home;
 }

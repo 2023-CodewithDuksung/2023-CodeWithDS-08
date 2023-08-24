@@ -10,7 +10,11 @@ public interface RecycleRepository extends JpaRepository<RecycleEntity, Integer>
 
     Optional<RecycleEntity> findByRecycleId(Integer RecycleId);
 
-    List<RecycleEntity> findTop3ByLocationOrderByViewDesc(String location);
+    List<RecycleEntity> findTop3ByOrderByViewDesc();
 
     List<RecycleEntity> findByTitleContaining(String keyword);
+
+    List<RecycleEntity> findBySchoolTrue();
+
+    List<RecycleEntity> findByHomeTrue();
 }

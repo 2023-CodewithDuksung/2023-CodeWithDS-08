@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.RecycleDTO;
 import com.example.backend.entity.RecycleEntity;
+import com.example.backend.service.AmazonS3Service;
 import com.example.backend.service.RecycleService;
 import com.example.backend.service.UploadFileService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,6 +24,7 @@ public class RecycleController {
 
     private final UploadFileService uploadFileService;
     private final RecycleService recycleService;
+    private final AmazonS3Service amazonS3Service;
 
     @PostMapping("/upload")
     public Integer uploadRecycle(@RequestParam("content") String recycleDTO,@RequestParam("image") MultipartFile multipartfile) throws IOException {
@@ -30,7 +32,7 @@ public class RecycleController {
         ObjectMapper mapper = new ObjectMapper();
         RecycleDTO mapperRecycleDTO = mapper.readValue(recycleDTO, RecycleDTO.class);
 
-        String imageFile = uploadFileService.storeFile(multipartfile);
+        String imageFile = amazonS3Service.saveFile(multipartfile);
         mapperRecycleDTO.setImage(imageFile);
 
         Integer recycle = recycleService.uploadRecycle(mapperRecycleDTO);
@@ -47,9 +49,9 @@ public class RecycleController {
     }
 
     @GetMapping("/best")
-    public List<RecycleEntity> getBestRecycleList(@RequestParam("location") String location){
+    public List<RecycleEntity> getBestRecycleList(){
 
-        List<RecycleEntity> bestRecycleList = recycleService.getbestRecycleList(location);
+        List<RecycleEntity> bestRecycleList = recycleService.getbestRecycleList();
 
         return bestRecycleList;
     }
@@ -58,6 +60,22 @@ public class RecycleController {
     public List<RecycleEntity> searchRecycle(@RequestParam("keyword") String keyword) {
 
         List<RecycleEntity> recycle = recycleService.searchRecycle(keyword);
+
+        return recycle;
+    }
+
+    @GetMapping("/school")
+    public List<RecycleEntity> getSchoolRecycle(){
+
+        List<RecycleEntity> recycle = recycleService.getSchoolSelect();
+
+        return recycle;
+    }
+
+    @GetMapping("/home")
+    public List<RecycleEntity> getHomeRecycle(){
+
+        List<RecycleEntity> recycle = recycleService.getHomeSelect();
 
         return recycle;
     }

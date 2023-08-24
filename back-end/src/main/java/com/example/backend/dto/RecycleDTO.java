@@ -18,9 +18,6 @@ public class RecycleDTO {
     private String type;
 
     @Nullable
-    private String location;
-
-    @Nullable
     private String method;
 
     @Nullable
@@ -32,15 +29,22 @@ public class RecycleDTO {
     @Nullable
     private Integer view;
 
+    @Nullable
+    private Boolean school;
+
+    @Nullable
+    private Boolean home;
+
     public RecycleDTO torecycleDTO(RecycleEntity recycleEntity){
         RecycleDTO recycleDTO = new RecycleDTO();
         recycleDTO.setTitle(recycleEntity.getTitle());
         recycleDTO.setType(recycleEntity.getType());
-        recycleDTO.setLocation(recycleEntity.getLocation());
         recycleDTO.setMethod(recycleEntity.getMethod());
         recycleDTO.setMethod(recycleEntity.getContent());
         recycleDTO.setImage(recycleEntity.getImage());
         recycleDTO.setView(recycleEntity.getView());
+        recycleDTO.setSchool(recycleEntity.getSchool());
+        recycleDTO.setHome(recycleEntity.getHome());
         return recycleDTO;
     }
 }

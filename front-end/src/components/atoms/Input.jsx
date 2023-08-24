@@ -1,8 +1,9 @@
 import React from "react"
 
-const inputStyle = (margin, border, borderColor) => ({
+const inputStyle = (margin, width, border, borderColor) => ({
     margin: margin,
     padding: "16px",
+    width: width,
     height: "24px",
     border: border, 
     borderRadius: "1rem",
@@ -11,7 +12,7 @@ const inputStyle = (margin, border, borderColor) => ({
 })
 
 const Input = (props) => {
-    const { margin, placeholder, type, name, minLength, maxLength, border, borderColor} = props
+    const { margin, width, placeholder, type, name, minLength, maxLength, border, borderColor} = props
 
     return (
         <>
@@ -22,7 +23,7 @@ const Input = (props) => {
             `}</style>
 
             <input
-            style={inputStyle(margin, border, borderColor)}
+            style={inputStyle(margin, width, border, borderColor)}
             placeholder={placeholder}
             type={type}
             name={name}

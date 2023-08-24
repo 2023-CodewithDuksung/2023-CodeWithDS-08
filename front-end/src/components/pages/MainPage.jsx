@@ -53,7 +53,7 @@ const MainPage = () => {
                     <Logo>GREENDUKLIFE</Logo>
                 </NavBar>
             </Header>
-            <Main>
+            <Main gap="3.8rem">
                 <Shortcut bgcolor={"#5C9259"} name={"WHERE \n IS?"} explanation={"내 주변 가장 가까운 \n 쓰레기장은 어디일까?"} color={"#ffffff"}></Shortcut>
                 <Shortcut bgcolor={"#E7EFE8"} name={"HOW \n TO?"} explanation={"어떻게 버려야 하지?"} color={"#000000"}>
                 <div style={containerStyle}>

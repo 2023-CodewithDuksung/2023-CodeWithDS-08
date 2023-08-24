@@ -24,32 +24,40 @@ const containerStyle = {
     textAlign: "left",
 };
 
-const signUpStyle = {
+const loginStyle = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "3rem",
-    padding: "5rem 0",
     width: "70vw",
     minHeight: "60vh",
     background: "#E7EFE8",
 };
 
 const formStyle = {
-    display: "flex",
-    flexDirection: "column",
+    display: "grid",
+    gridTemplateColumns: "4fr 1fr", // 4:1 비율로 구성
+    gridTemplateRows: "1fr 1fr", // 2개의 동일한 높이의 행 생성
     gap: "1rem",
     justifyContent: "center",
-    alignItems: "center",
     width: "20rem",
 }
 
-const marginStyle ={
-    marginTop: "5rem"
+const buttonBoxStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "2rem 0"
+}
+
+const borderStyle = {
+    border: "1px solid #000000",
+    width: "0.1px",
+    height: "30px"
 }
   
-const SignupPage = () => {
+const LoginPage = () => {
     return (
         <div style={wrapperStyle}>
             <Header>
@@ -62,20 +70,22 @@ const SignupPage = () => {
                     <IconBtn />
                     <InfoItem name={"MY PAGE"} color={"#000000"} />
                 </div>
-                <div style={signUpStyle}>
-                    <form method="POST" style={formStyle}>
-                        <FormIn label={"ID"} placeholder={"ID를 입력해 주세요."} type={"email"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
-                        <FormIn label={"PW"} placeholder={"비밀번호를 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
-                        <FormIn label={"E-Mail"} placeholder={"E-Mail을 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
-                        <FormIn label={"Nickname"} placeholder={"닉네임을 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
-                        <div style={marginStyle}>
-                            <Button bgcolor={"#296346"} width={"390px"} height={"50px"} color={"#ffffff"} >Sign up</Button>
-                        </div>
-                    </form>
+                <div style={loginStyle}>
+                      <H1 padding="1rem 0">Login</H1>
+                      <form method="POST" style={formStyle}>
+                          <FormIn label={"E-mail"} placeholder={"E-mail을 입력해 주세요."} type={"email"} width={"fit-content"} border={"none"} />
+                          <FormIn label={"PW"} placeholder={"비밀번호를 입력해 주세요."} type={"password"} width={"fit-content"} border={"none"} />
+                          <Button gridRow={"1 / span 2"} gridColumn={"2"} bgcolor={"#296346"} width={"120px"} height={"120px"} color={"#ffffff"} >Sign up</Button>
+                      </form>
+                  <div style={buttonBoxStyle}>
+                    <Button border="none" bgcolor="none">비밀번호 찾기</Button>
+                    <div style={borderStyle} />
+                    <Button border="none" bgcolor="none">회원가입</Button>
+                  </div>
                 </div>
               </Main>
           </div>
       );
   };
 
-export default SignupPage;
+export default LoginPage;

@@ -8,16 +8,12 @@ const logoBackgroundStyle = {
     height: "100%", 
 }
 
-const additionalH1Style = {
-    margin: 0
-}
-
 const Logo = (props) => {
     const { children } = props;
   
   return (
     <div style={logoBackgroundStyle}>
-      <H1 color={"#ffffff"} fontSize={"3rem"} style={ additionalH1Style}>{children}</H1>
+      <H1 color={"#ffffff"} fontSize={"3rem"} margin="0" fontFamily="Changa One">{children}</H1>
     </div>
   )
 }

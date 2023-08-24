@@ -20,10 +20,11 @@ public class RecycleService {
         RecycleEntity recycle = RecycleEntity.builder()
                 .title(recycleDTO.getTitle())
                 .type(recycleDTO.getType())
-                .location(recycleDTO.getLocation())
                 .method(recycleDTO.getMethod())
                 .content(recycleDTO.getContent())
                 .image(recycleDTO.getImage())
+                .school(recycleDTO.getSchool())
+                .home(recycleDTO.getHome())
                 .view(0)
                 .build();
 
@@ -41,9 +42,9 @@ public class RecycleService {
         return recycle;
     }
 
-    public List<RecycleEntity> getbestRecycleList(String location){
+    public List<RecycleEntity> getbestRecycleList(){
 
-        List<RecycleEntity> bestRecycleList = recycleRepository.findTop3ByLocationOrderByViewDesc(location);
+        List<RecycleEntity> bestRecycleList = recycleRepository.findTop3ByOrderByViewDesc();
 
         return bestRecycleList;
     }
@@ -53,5 +54,19 @@ public class RecycleService {
         List<RecycleEntity> recycle = recycleRepository.findByTitleContaining(keyword);
 
         return recycle;
+    }
+
+    public List<RecycleEntity> getSchoolSelect(){
+
+        List<RecycleEntity> schoolRecycle = recycleRepository.findBySchoolTrue();
+
+        return schoolRecycle;
+    }
+
+    public List<RecycleEntity> getHomeSelect(){
+
+        List<RecycleEntity> homeRecycle = recycleRepository.findByHomeTrue();
+
+        return homeRecycle;
     }
 }

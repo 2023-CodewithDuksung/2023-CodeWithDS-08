@@ -3,6 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.dto.PostDTO;
 import com.example.backend.dto.UploadFileDTO;
 import com.example.backend.entity.PostEntity;
+import com.example.backend.service.AmazonS3Service;
 import com.example.backend.service.FireBaseService;
 import com.example.backend.service.PostService;
 import com.example.backend.service.UploadFileService;
@@ -29,6 +30,7 @@ public class PostController {
     private final PostService postService;
     private final FireBaseService fireBaseService;
     private final UploadFileService uploadFileService;
+    private final AmazonS3Service amazonS3Service;
 
     @PostMapping("/upload")
     public String uploadPost(@RequestParam("content") String postDTO, @RequestParam("images") List<MultipartFile> multipartfiles) throws JsonProcessingException, IOException {
@@ -36,7 +38,7 @@ public class PostController {
         ObjectMapper mapper = new ObjectMapper();
         PostDTO mapperPostDTO = mapper.readValue(postDTO, PostDTO.class);
 
-        List<String> imageFiles = uploadFileService.storeFiles(multipartfiles);
+        List<String> imageFiles = amazonS3Service.saveFiles(multipartfiles);
 
         mapperPostDTO.setImageArray(imageFiles.toString());
 
@@ -67,21 +69,6 @@ public class PostController {
         List<PostEntity> searchList = postService.searchPost(keyword);
 
         return searchList;
-    }
-
-    @PostMapping("/uploadfire")
-    public String uploadPostFire(@RequestParam("content") String postDTO, @RequestParam("images") List<MultipartFile> multipartfiles) throws JsonProcessingException, IOException {
-
-        ObjectMapper mapper = new ObjectMapper();
-        PostDTO mapperPostDTO = mapper.readValue(postDTO, PostDTO.class);
-
-        List<String> imageFiles = fireBaseService.uploadFiles(multipartfiles);
-
-        mapperPostDTO.setImageArray(imageFiles.toString());
-
-        String post = postService.uploadPost(mapperPostDTO);
-
-        return post;
     }
 
     @PostMapping("/files")

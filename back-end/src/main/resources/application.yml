@@ -21,3 +21,25 @@ spring:
 app:
   firebase-configuration-file: ./serviceAccountKey.json
   firebase-bucket: hackathon-8da33.appspot.com
+
+cloud:
+  aws:
+    s3:
+      bucket: dshackathon
+    stack.auto: false
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      accessKey:
+      secretKey:
+
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error

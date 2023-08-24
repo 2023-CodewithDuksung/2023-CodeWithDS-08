@@ -20,7 +20,7 @@ public class UploadFileService {
     // 프로젝트 루트 경로에 있는 files 디렉토리
     private final String fileDir = rootPath + "/files/";
 
-    public String getFullPath(String filename) { return fileDir + filename; }
+    public String getFullPath(String filename) { return "C:\\images\\" + filename; }
 
     public String storeFile(MultipartFile multipartFile) throws IOException {
 

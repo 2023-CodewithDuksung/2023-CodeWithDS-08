@@ -69,13 +69,28 @@ public class PostController {
         return searchList;
     }
 
+    @PostMapping("/uploadfire")
+    public String uploadPostFire(@RequestParam("content") String postDTO, @RequestParam("images") List<MultipartFile> multipartfiles) throws JsonProcessingException, IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        PostDTO mapperPostDTO = mapper.readValue(postDTO, PostDTO.class);
+
+        List<String> imageFiles = fireBaseService.uploadFiles(multipartfiles);
+
+        mapperPostDTO.setImageArray(imageFiles.toString());
+
+        String post = postService.uploadPost(mapperPostDTO);
+
+        return post;
+    }
+
     @PostMapping("/files")
     public String uploadFile(@RequestParam("file") MultipartFile file, String nameFile)
         throws IOException, FirebaseAuthException{
         if (file.isEmpty()){
             return "empty";
         }
-        return fireBaseService.uploadFiles(file, nameFile);
+        return fireBaseService.uploadFile(file);
     }
 
 }

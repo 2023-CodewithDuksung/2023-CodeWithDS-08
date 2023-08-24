@@ -1,13 +1,11 @@
 import './App.css';
-import Logo from './components/molecules/Logo';
-import NavBar from './components/organisms/NavBar';
-import Header from './components/templates/Header';
+import MainPage from './components/pages/MainPage';
+
 
 function App() {
   return (
     <div className="App">
-      <Header>
-      <NavBar><Logo>GREENDUKLIFE</Logo></NavBar></Header>
+      <MainPage />
     </div>
   );
 }

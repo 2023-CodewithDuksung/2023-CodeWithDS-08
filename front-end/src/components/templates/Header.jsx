@@ -1,10 +1,10 @@
 import React from "react"
 
 const headerStyle = {
-    display: "grid",
-    gridTemplateColumns: "1fr 4fr",
+    display: "flex",
     padding: "2rem 3rem",
-    height: "11rem",
+    // width: "100%", // 헤더 잘림 현상 있음
+    height: "16vh",
     backgroundColor: "#95BFA0",
 }
 

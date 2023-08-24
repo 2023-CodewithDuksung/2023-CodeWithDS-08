@@ -49,7 +49,9 @@ const marginStyle ={
     marginTop: "5rem"
 }
   
-const SignupPage = () => {
+const SignupPage = (props) => {
+    const {setPageState}=props
+
     return (
         <div style={wrapperStyle}>
             <Header>
@@ -68,8 +70,8 @@ const SignupPage = () => {
                         <FormIn label={"PW"} placeholder={"비밀번호를 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
                         <FormIn label={"E-Mail"} placeholder={"E-Mail을 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
                         <FormIn label={"Nickname"} placeholder={"닉네임을 입력해 주세요."} type={"password"} gap={"0"} flexDirection={"column"} width={"358px"} border={"none"} />
-                        <div style={marginStyle}>
-                            <Button bgcolor={"#296346"} width={"390px"} height={"50px"} color={"#ffffff"} >Sign up</Button>
+                        <div onClick={()=>{setPageState("login")}} style={marginStyle}>
+                            <Button  bgcolor={"#296346"} width={"390px"} height={"50px"} color={"#ffffff"} >Sign up</Button>
                         </div>
                     </form>
                 </div>

@@ -9,10 +9,10 @@ const logoBackgroundStyle = {
 }
 
 const Logo = (props) => {
-    const { children } = props;
+    const { setPageState, children } = props;
   
   return (
-    <div style={logoBackgroundStyle}>
+    <div onClick={()=>{setPageState("main")}} style={logoBackgroundStyle} >
       <H1 color={"#ffffff"} fontSize={"3rem"} margin="0" fontFamily="Changa One">{children}</H1>
     </div>
   )

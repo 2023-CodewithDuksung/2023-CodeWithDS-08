@@ -3,7 +3,7 @@ import NavBar from '../organisms/NavBar';
 import InfoItem from '../molecules/InfoItem';
 import Header from '../templates/Header';
 import Main from "../templates/Main";
-import nonNamingMap from "../../assets/images/nonNamingMap.png";
+import wastebasket from "../../assets/images/wastebasket.jpeg";
 
 const MapPageBgColor = {
     background: "#E7EFE8"
@@ -18,46 +18,33 @@ const divStyle = {
     gap: "4rem"
 }
 
-const divStyle2 = {
-     display: "flex"
-}
-
 const fieldsetStyle = {
+    background: "#FDFDFD",
     width: "55rem",
-    height: "24rem",
+    height: "40rem",
     borderRadius: "0.9375rem",
     border: "0.01rem solid #5C9259"
 
 }
 
 const imgStyle = {
-    paddingBottom: "8rem"
+    paddingTop: "5rem"
 }
 
 const ulStyle = {
     listStyleType: "none",
     textAlign: "start",
-    background: "#F6F6F6",
-    padding: "2.8rem",
-    margin: "0",
-    width: "15rem",
-    height: "18.5rem"
+    padding: "2.5rem",
+    margin: "0 10rem"
 }
 
 const liStyle = {
     margin: "0.5rem 0",
-    padding: "0.5rem",
-    borderBottom: "0.01rem solid"
+    padding: "0.5rem 0",
+    borderTop: "0.01rem solid"
 }
 
-const captionStyle = {
-    textAlign: "center",
-    margin: "0 6.5rem",
-    
-}
-
-const MapPage = (props) => {
-    const { setPageState } = props
+const MapDetailPage = () => {
     return (
         <div>
             <div style = {MapPageBgColor}>
@@ -75,22 +62,15 @@ const MapPage = (props) => {
                         <InfoItem name={"WHERE IS?"} explanation={"우리학교 안에서 \n 가장 가까운 \n 쓰레기장은 어디일까?"} margin={"0 5rem"} />
                     </div>
                     <fieldset style = {fieldsetStyle}>
-                        <div style = {divStyle2}>
-                            <img style = {imgStyle} src = {nonNamingMap} width = '576.11rem' height = '384.67rem' alt = "지도 이미지"></img>
-                            <ul style = {ulStyle}>
-                                <caption style = {captionStyle} >LIST</caption>
-                                <li style = {liStyle} onClick={()=>{setPageState("mapdetail")}}>차미리사관</li>
-                                <li style = {liStyle}>1(2)</li>
-                                <li style = {liStyle}>2(2)</li>
-                                <li style = {liStyle}>3(2)</li>
-                                <li style = {liStyle}>4(2)</li>
-                            </ul>
-                        </div>
+                        <img style = {imgStyle} src = {wastebasket} width = '450rem' height = '337.2rem' alt = '쓰레기통 사진'></img>
+                        <ul style = {ulStyle}>
+                            <li style = {liStyle}>위치 : 3층 엘리베이터 우측</li>
+                            <li>종류 : 종이류, 캔류, 유리병류, 플라스틱류, 일반 쓰레기</li>
+                        </ul>
                     </fieldset>
                 </Main>
             </div>
         </div>
     );
 };
-
-export default MapPage;
+export default MapDetailPage;

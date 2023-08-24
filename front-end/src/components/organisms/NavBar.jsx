@@ -28,32 +28,32 @@ const liStyle = (color) => ({ // hover 속성 적용 예정
 })
 
 const NavBar = (props) => {
-    const { children, setPageState } = props
+    const { children, page, setPageState } = props
 
     return (
         <nav style={navStyle}>
             <ul style={ulStyle}>
                 <li
                 style={liStyle("#ffffff")}
-                onClick={() => setPageState("MAP")}
+                onClick={() => setPageState("map")}
                 >
                 MAP
                 </li>
                 <li
                 style={liStyle("#ffffff")}
-                onClick={() => setPageState("TIPS")}
+                onClick={() => setPageState("tip")}
                 >
                 TIPS
                 </li>
                 <li
                 style={liStyle("#ffffff")}
-                onClick={() => setPageState("LIFE")}
+                onClick={() => setPageState("community")}
                 >
                 LIFE
                 </li>
                 <li
                 style={liStyle("#296346")}
-                onClick={() => setPageState("SIGNUP")}
+                onClick={() => setPageState("signup")}
                 >
                 SIGN UP
                 </li>

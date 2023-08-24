@@ -56,7 +56,9 @@ const imgStyle = {
 };
 
 
-const TipPage = () => {
+const TipPage = (props) => {
+    const { setPageState } = props
+
     return (
         <div style={wrapperStyle}>
             <Header>
@@ -78,7 +80,7 @@ const TipPage = () => {
                             <img src={School1} style={imgStyle} />
                         </div>
                         <div style={imgContainerStyle}>
-                            <img src={School2} style={imgStyle} />
+                            <img src={School2} style={imgStyle} onClick={()=>{setPageState("tipdetail")}} />
                         </div>
                         <div style={imgContainerStyle}>
                             <img src={School3} style={imgStyle} />

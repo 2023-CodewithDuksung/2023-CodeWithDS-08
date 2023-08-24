@@ -19,13 +19,13 @@ const containerStyle = {
 }
 
 const Shortcut = (props) => {
-    const { children, bgcolor, name, explanation, color } = props
+    const { setPageState, page, children, bgcolor, name, explanation, color } = props
 
     return (
         <div style={shortcutStyle(bgcolor)}>
             <div style={containerStyle}>
                 <InfoItem flexDirection="column" name={name} explanation={explanation} h1Size="36px" pSize="24px" margin="0" padding="0" color={color} />
-                <IconBtn color={color} />
+                <IconBtn setPageState={setPageState} page={page} color={color} />
                 {children}
             </div>
         </div>

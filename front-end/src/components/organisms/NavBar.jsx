@@ -2,10 +2,10 @@ import React from "react"
 
 const navStyle = {
     display: "flex",
-    flexDirection: 'column',
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-end", 
-    marginTop: 'auto',
+    marginTop: "auto",
 }
 
 const ulStyle = {

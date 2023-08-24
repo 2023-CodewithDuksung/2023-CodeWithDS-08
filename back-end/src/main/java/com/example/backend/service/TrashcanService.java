@@ -21,7 +21,7 @@ public class TrashcanService {
         this.trashcanRepository = trashcanRepository;
     }
 
-
+    // 검색 기능 3개
     @Transactional
     public List<TrashcanEntity> clickBuilding(String keyword) {
         List<TrashcanEntity> buildings = trashcanRepository.findByBuildingContaining(keyword);
@@ -39,6 +39,13 @@ public class TrashcanService {
         List<TrashcanEntity> Id = trashcanRepository.findAllByTrashcanId(keyword);
         return Id;
     }
+
+    // count : building, floor 기준
+    public Long getCount(String building, Integer floor){
+        Long count = trashcanRepository.countByBuildingAndFloor(building, floor);
+        return count;
+    }
+
 
 
     private TrashcanDTO convertEntityToDto(TrashcanEntity b){

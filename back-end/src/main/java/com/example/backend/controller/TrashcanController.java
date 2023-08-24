@@ -40,7 +40,7 @@ public class TrashcanController {
         return floorEntityList;
     }
 
-    // 3차 조회 (상세 페이지, id기준)
+    // 3차 조회 (상세 페이지, id기준) - 필요없음.
     @GetMapping("/trashcanId")
     public List<TrashcanEntity> clickId(@RequestParam("trashcanId") Long keyword){
         System.out.println("keyword2 : " + keyword);    //
@@ -48,6 +48,15 @@ public class TrashcanController {
         System.out.println("controlloer2 : " + idEntityList);    //
         return idEntityList;
     }
+
+    // count (building, floor 기준)
+    @GetMapping("/count")
+    public Long clickId(@RequestParam("building") String building, @RequestParam("floor") Integer floor){
+        Long count = trashcanService.getCount(building, floor);
+        System.out.println("count = " + count);    //
+        return count;
+    }
+
 
     // post (데이터 등록)
     @PostMapping("/create")

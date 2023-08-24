@@ -8,5 +8,5 @@ public interface TrashcanRepository extends JpaRepository<TrashcanEntity, Long> 
     List<TrashcanEntity> findByBuildingContaining(String keyword);
     List<TrashcanEntity> findAllByFloor(final Integer keyword);
     List<TrashcanEntity> findAllByTrashcanId(final Long keyword);
-
+    Long countByBuildingAndFloor(String building, Integer floor);
 }

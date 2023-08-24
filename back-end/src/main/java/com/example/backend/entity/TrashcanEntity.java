@@ -20,7 +20,7 @@ public class TrashcanEntity {
     // 보이는 정보
     private Integer floor;
 
-    private Integer count;  // 층 기준 개수  // Q : building -> floor 기준 1씩 증가해야함.
+    private Integer count;  // 층 기준 개수
 
     @Column(length=50)
     private String icon;

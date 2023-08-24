@@ -29,9 +29,9 @@ public class TrashcanService {
     }
 
     @Transactional
-    public List<TrashcanEntity> clickFloor(Integer keyword) {
-        List<TrashcanEntity> floors = trashcanRepository.findAllByFloor(keyword);
-        return floors;
+    public List<TrashcanEntity> getPage(String building, Integer floor) {
+        List<TrashcanEntity> pages = trashcanRepository.findAllByBuildingAndFloor(building, floor);
+        return pages;
     }
 
     @Transactional

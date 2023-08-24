@@ -25,7 +25,7 @@ public class TrashcanController {
     @Autowired
     private TrashcanService trashcanService;
 
-    // 1차 조회 (building기준)
+    // 1차 조회 : building기준
     @GetMapping("/click")
     public List<TrashcanEntity> click(@RequestParam("building") String keyword){
         List<TrashcanEntity> buildingDtoList = trashcanService.clickBuilding(keyword);
@@ -33,23 +33,29 @@ public class TrashcanController {
         return buildingDtoList;
     }
 
-    // 2차 조회 (floor기준)
+    // 2차 조회(상세페이지) : floor기준
     @GetMapping("/floor")
     public List<TrashcanEntity> clickFloor(@RequestParam("floor") Integer keyword){
         List<TrashcanEntity> floorEntityList = trashcanService.clickFloor(keyword);
         return floorEntityList;
     }
 
-    // 3차 조회 (상세 페이지, id기준) - 필요없음.
+    // 3차 조회 : id기준 - 필요없음.
     @GetMapping("/trashcanId")
     public List<TrashcanEntity> clickId(@RequestParam("trashcanId") Long keyword){
-        System.out.println("keyword2 : " + keyword);    //
         List<TrashcanEntity> idEntityList = trashcanService.clickId(keyword);
-        System.out.println("controlloer2 : " + idEntityList);    //
         return idEntityList;
     }
 
-    // count (building, floor 기준)
+    // 검색 기능 : type기준
+    @GetMapping("/type")
+    public List<TrashcanEntity> searchType(@RequestParam("type") String keyword){
+        List<TrashcanEntity> typeEntityList = trashcanService.searchType(keyword);
+        return typeEntityList;
+    }
+
+
+    // count : building, floor 기준
     @GetMapping("/count")
     public Long clickId(@RequestParam("building") String building, @RequestParam("floor") Integer floor){
         Long count = trashcanService.getCount(building, floor);

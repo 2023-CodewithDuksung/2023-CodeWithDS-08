@@ -49,7 +49,6 @@ public class TrashcanController {
         return idEntityList;
     }
 
-
     // post (데이터 등록)
     @PostMapping("/create")
     @ResponseBody

@@ -1,0 +1,45 @@
+server:
+  address: localhost
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/hackathon?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: true
+#multipart 설정
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+app:
+  firebase-configuration-file: ./serviceAccountKey.json
+  firebase-bucket: hackathon-8da33.appspot.com
+
+cloud:
+  aws:
+    s3:
+      bucket: dshackathon
+    stack.auto: false
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      accessKey:
+      secretKey:
+
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error

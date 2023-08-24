@@ -1,22 +1,25 @@
 import React from "react"
 
-const buttonStyle = (width, bgcolor, color) => ({
+const buttonStyle = (width, height, bgcolor, color, gridRow, gridColumn) => ({
     padding: "1rem",
     width: width,
-    height: "1.5rem",
+    height: height,
     border: "none", 
     borderRadius: "1rem",
     fontSize: "1rem",
     color: color,
-    backgroundColor: bgcolor,
+    background: bgcolor,
+    gridRow: gridRow,
+    gridColumn: gridColumn
 })
 
 const Button = (props) => {
-    const { children, width, bgcolor, color } = props
+    const { children, width, height, bgcolor, color, gridRow, gridColumn } = props
 
     return (
         <button
-        style={buttonStyle(width, bgcolor, color)}
+        type="submit"
+        style={buttonStyle(width, height, bgcolor, color, gridRow, gridColumn)}
         //   onClick={() => setToggleState(!toggleState)}
         >
         {children}

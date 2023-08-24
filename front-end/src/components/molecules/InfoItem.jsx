@@ -15,7 +15,7 @@ const InfoItem = (props) => {
     return (
         <div style={infoItemStyle(flexDirection)}>
             <H1 fontSize={h1Size} margin={margin} padding={padding} color={color}>{name}</H1>
-            <P fontSize={pSize} margin={margin} padding={padding} color={color}>{explanation}</P>
+            <P fontSize={pSize} fontFamily={"ABeeZee"} margin={margin} padding={padding} color={color}>{explanation}</P>
         </div>
     )
 }
